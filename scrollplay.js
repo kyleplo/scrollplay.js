@@ -16,11 +16,11 @@ return this;
 this.scroll = function (yes){if(yes){this.target.style.position = "fixed";this.target.style.top = "0px";this.target.style.left = "0px";}else{this.target.style.position = "unset"};return this};
 this.forceScroll = function (){this.target.style.overflowY = "scroll";return this};
 this.forceScrollSide = function (){this.target.style.overflowX = "scroll";return this};
-this.addScroll = function (x){for(var i = 0;i < x;i++){this.target.innerHTML += "<br>"};return this}
+this.addScroll = function (x){var b = "";for(var i = 0;i < x;i++){b += "<br>"};this.target.innerHTML += b;return this}
 };
 function scroll(sel){
 if(typeof sel === "string"){
-return document.querySelector(sel);
+return new Scroll(document.querySelector(sel));
 }else{
 return new Scroll(sel)}
 };
